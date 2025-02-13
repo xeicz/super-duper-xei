@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day! ❤️</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffccd5;
+            overflow: hidden;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: inline-block;
+            margin-top: 50px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+            border: none;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .yes {
+            background: green;
+            color: white;
+        }
+        .yes:hover {
+            background: darkgreen;
+        }
+        .no {
+            background: red;
+            color: white;
+        }
+        .no:hover {
+            background: darkred;
+        }
+        #message {
+            font-size: 24px;
+            margin-top: 20px;
+            color: red;
+            font-weight: bold;
+        }
+        /* Floating Hearts Animation */
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: red;
+            animation: float 5s linear infinite;
+        }
+        @keyframes float {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-500px) scale(1.5);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Happy Valentine's Day, my suitor! ❤️</h1>
+        <p>Will you be my Valentine? 😊</p>
+        <button class="yes" onclick="showLove()">Yes</button>
+        <button class="no" onclick="showNo()">No</button>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        function showLove() {
+            document.getElementById("message").innerHTML = "I love you ❤️❤️❤️❤️❤️";
+            for (let i = 0; i < 20; i++) {
+                createHeart();
+            }
+        }
+        function showNo() {
+            document.getElementById("message").innerHTML = "Oh no! Try again 😢";
+        }
+        function createHeart() {
+            let heart = document.createElement("div");
+            heart.classList.add("heart");
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.animationDuration = Math.random() * 2 + 3 + "s";
+            document.body.appendChild(heart);
+            setTimeout(() => {
+                heart.remove();
+            }, 5000);
+        }
+    </script>
+
+</body>
+</html>
